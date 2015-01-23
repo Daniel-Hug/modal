@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>Modal demo</title>
+
+	<style>
+	#modalCode {
+		 display: block;
+		 margin: 1em 0;
+		 white-space: pre-wrap;
+		 font-family: monospace;
+	}
+	</style>
+</head>
+<body>
+	<h1>Demo the modal!</h1>
+	<button class="alert">alert</button> <button class="confirm">confirm</button>
+	<p>Modals are created with the <code>modal</code> function:</p>
+
+	<script src="modal.js"></script>
+
+<script id="modalCode">document.querySelector('.alert').addEventListener('click', function() {
+	modal('alert', 'Greetings & salutations!', ['OK']);
+});
+
+document.querySelector('.confirm').addEventListener('click', function() {
+	modal('confirm', 'Are you sure?', ['Yes', 'No'], function(sure) {
+		var msg = sure === 'Yes' ?
+			"Good, let's do this!" :
+			"That's too bad. :(\nMaybe next time.";
+		modal('alert', msg, ['OK']);
+	});
+});</script>
+
+</body>
+</html>
